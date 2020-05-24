@@ -2,14 +2,14 @@ class CalcController {
 
     constructor(){
 
-        this._lastOperator = "";
-        this._lastNumber = "";
+        this._lastOperator = '';
+        this._lastNumber = '';
 
         this._operation = [];
-        this._locale = "pt-BR"; 
-        this._displayCalcEl = document.querySelector("#display"); 
-        this._dateEl = document.querySelector("#data"); 
-        this._timeEl = document.querySelector("#hora"); 
+        this._locale = 'pt-BR'; 
+        this._displayCalcEl = document.querySelector('#display'); 
+        this._dateEl = document.querySelector('#data'); 
+        this._timeEl = document.querySelector('#hora'); 
         this._currentDate;
         this.initialize();
         this.initButtonsEvents();
@@ -32,7 +32,7 @@ class CalcController {
 
     addEventListenerAll(element, events, fn){
 
-        events.split(" ").forEach(event => {
+        events.split(' ').forEach(event => {
 
             element.addEventListener(event, fn, false);
         });
@@ -44,7 +44,11 @@ class CalcController {
     clearAll(){
 
         this._operation = [];
+        this._lastNumber = '';
+        this._lastOperation = '';
+
         this.setLastNumberToDisplay();
+
 
     }
 
@@ -73,7 +77,7 @@ class CalcController {
     isOperator(value){
 
 
-        return (["+", "-", "*", "%", "/"].indexOf(value) > -1);
+        return (['+', '-', '*', '%', '/'].indexOf(value) > -1);
 
     }
 
@@ -91,12 +95,12 @@ class CalcController {
 
     getResult(){
 
-        return eval(this._operation.join(""));
+        return eval(this._operation.join(''));
     }
 
     calc(){
 
-        let last = "";
+        let last = '';
 
         this._lastOperator = this.getLastItem();
 
@@ -120,7 +124,7 @@ class CalcController {
 
         let result = this.getResult();
 
-        if (last == "%"){   
+        if (last == '%'){   
 
            result /= 100;
 
@@ -183,12 +187,6 @@ class CalcController {
 
                 this.setLastOperation(value);
 
-
-            }else if (isNaN(value)) {
-                //Outra coisa
-
-                console.log("outra coisa", value);
-
             }else {
 
                 this.pushOperation(value);
@@ -196,7 +194,7 @@ class CalcController {
             }
 
 
-            }else {
+        }else {
             //Number
             if (this.isOperator(value)) {
 
@@ -205,7 +203,7 @@ class CalcController {
             }else {
 
                 let newValue = this.getLastOperation().toString() + value.toString();
-                this.setLastOperation(parseInt(newValue));
+                this.setLastOperation(parseFloat(newValue));
 
                 //atualizar display
 
@@ -219,7 +217,27 @@ class CalcController {
 
 
     setError(){
-        this.displayCalc ="Error";
+        this.displayCalc ='Error';
+    }
+
+    addDot(){
+
+        let lastOperation = this.getLastOperation();
+
+        if (this.isOperator(lastOperation) ||  !lastOperation){
+
+            this.pushOperation('0.');
+
+        }else{
+
+            this.setLastOperation(lastOperation.toString() + '.');
+
+        }
+
+        this.setLastNumberToDisplay();
+
+    
+
     }
 
 
@@ -227,56 +245,56 @@ class CalcController {
 
         switch (value) {
 
-            case "ac":
+            case 'ac':
                 this.clearAll();
                 break;
 
-            case "ce":
+            case 'ce':
                 this.clearEntry();
                 break;
 
-            case "soma":
-                this.addOperation("+");
+            case 'soma':
+                this.addOperation('+');
                 break;
 
-            case "subtracao":
-                this.addOperation("-");
+            case 'subtracao':
+                this.addOperation('-');
                 break;            
 
-            case "divisao":
-                this.addOperation("/");        
+            case 'divisao':
+                this.addOperation('/');        
                 break;
   
-            case "multiplicacao":
-                this.addOperation("*");               
+            case 'multiplicacao':
+                this.addOperation('*');               
                 break;        
 
  
-            case "porcento":
-                this.addOperation("%");
+            case 'porcento':
+                this.addOperation('%');
     
                 break;      
 
-            case "igual":
+            case 'igual':
 
                 this.calc();
                 
                 break;      
                 
-            case "ponto":
-                this.addOperation(".");
+            case 'ponto':
+                this.addDot(    );
                 break;
 
-            case "0":
-            case "1":
-            case "2":
-            case "3":
-            case "4":
-            case "5":
-            case "6":
-            case "7":
-            case "8":
-            case "9":
+            case '0':
+            case '1':
+            case '2':
+            case '3':
+            case '4':
+            case '5':
+            case '6':
+            case '7':
+            case '8':
+            case '9':
 
                 this.addOperation(parseInt(value));
                 break;
@@ -293,23 +311,23 @@ class CalcController {
 
     initButtonsEvents(){
 
-        let buttons = document.querySelectorAll("#buttons > g, #parts > g");
+        let buttons = document.querySelectorAll('#buttons > g, #parts > g');
 
         buttons.forEach((btn, index) => {
 
             //drag não funcionando
 
-            this.addEventListenerAll(btn, "click", e => {
+            this.addEventListenerAll(btn, 'click', e => {
 
-                let textBtn = btn.className.baseVal.replace("btn-", "");
+                let textBtn = btn.className.baseVal.replace('btn-', '');
 
                 this.execBtn(textBtn);
 
             });
 
-            this.addEventListenerAll(btn, "mouseover mouseup mousedown", e => {
+            this.addEventListenerAll(btn, 'mouseover mouseup mousedown', e => {
 
-                btn.style.cursor = "pointer";
+                btn.style.cursor = 'pointer';
 
             });
             
