@@ -2,9 +2,10 @@ class CalcController {
 
     constructor(){
 
+        this._audio = new Audio('click.mp3');
+        this._audioOnOff = false;
         this._lastOperator = '';
-        this._lastNumber = '';
-
+        this._lastNumber = ''; 
         this._operation = [];
         this._locale = 'pt-BR'; 
         this._displayCalcEl = document.querySelector('#display'); 
@@ -60,11 +61,44 @@ class CalcController {
         }, 1000);
 
         this.pasteFromClipboard();
+
+        document.querySelectorAll('.btn-ac').forEach(btn => {
+
+            btn.addEventListener('dblclick', e => {
+
+                this.toggleAudio();
+
+            });
+
+        });
+    }
+
+    toggleAudio(){
+
+        /*IF ternário
+        this._audioOnOff = (this._audioOnOff) ? false : true;*/
+
+        this._audioOnOff = !this._audioOnOff;
+
+    }
+
+    playAudio(){
+
+        if (this._audioOnOff) {
+
+            this._audio.currentTime = 0;
+
+            this._audio.play();
+
+        }
+
     }
 
     initKeyboard(){
 
         document.addEventListener('keydown', e=> {
+
+            this.playAudio();
 
             switch (e.key) {
 
@@ -336,6 +370,8 @@ class CalcController {
 
     execBtn(value){
 
+        this.playAudio();
+
         switch (value) {
 
             case 'ac':
@@ -410,7 +446,7 @@ class CalcController {
 
             //drag não funcionando
 
-            this.addEventListenerAll(btn, 'click', e => {
+            this.addEventListenerAll(btn, 'click drag', e => {
 
                 let textBtn = btn.className.baseVal.replace('btn-', '');
 
