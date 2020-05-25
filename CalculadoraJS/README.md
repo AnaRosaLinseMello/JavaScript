@@ -1,6 +1,6 @@
 CalculadoraJS:
 
-Projeto do curso online utilizando JavaScript para o desenvolvimento de uma calculadora
+Projeto do curso online utilizando apenas JavaScript
 
 Recursos interessantes da calculadora :
   Áudio - clicar duas vezes AC para ativar;
@@ -12,6 +12,9 @@ Alguns métodos utilizados no projeto:
   split();
   eval();
   join();
+  toString();
+  forEach();
+  condicional switch;
   
   
  
