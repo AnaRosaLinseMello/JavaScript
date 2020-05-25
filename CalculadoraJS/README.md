@@ -1,4 +1,4 @@
-####CalculadoraJS:
+CalculadoraJS:
 <br />
 
 Projeto do curso online utilizando apenas JavaScript
