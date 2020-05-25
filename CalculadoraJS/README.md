@@ -2,26 +2,26 @@ CalculadoraJS:
 <br />
 <br />
 
-#Projeto do curso online utilizando apenas JavaScript
+# Projeto do curso online utilizando apenas JavaScript
 <br />
 <br />
 
-#Recursos interessantes da calculadora :<br />
+# Recursos interessantes da calculadora :<br />
 <br />
-  ###Áudio - clicar duas vezes AC para ativar; <br />
-  ###Eventos de teclado;<br />
-  ###CE - limpa o último número digitado;<br />
-  ###Data e Hora; 
+  ### Áudio - clicar duas vezes AC para ativar; <br />
+  ### Eventos de teclado;<br />
+  ### CE - limpa o último número digitado;<br />
+  ### Data e Hora; 
   
  
-#Alguns métodos utilizados no projeto: <br />
+# Alguns métodos utilizados no projeto: <br />
 <br />
-  ###split();<br />
-  ###eval();<br />
-  ###join();<br />
-  ###toString();<br />
-  ###forEach();<br />
-  ###condicional switch;<br />
+  ### split();<br />
+  ### eval();<br />
+  ### join();<br />
+  ### toString();<br />
+  ### forEach();<br />
+  ### condicional switch;<br />
   
   
  
