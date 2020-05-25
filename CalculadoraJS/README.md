@@ -1,20 +1,27 @@
 CalculadoraJS:
+<br />
+<br />
 
 Projeto do curso online utilizando apenas JavaScript
+<br />
+<br />
 
-Recursos interessantes da calculadora :
-  Áudio - clicar duas vezes AC para ativar;
-  Eventos de teclado;
-  CE - limpa o último número digitado;
+Recursos interessantes da calculadora :<br />
+<br />
+  Áudio - clicar duas vezes AC para ativar; <br />
+  Eventos de teclado;<br />
+  CE - limpa o último número digitado;<br />
   Data e Hora; 
+  
  
-Alguns métodos utilizados no projeto: 
-  split();
-  eval();
-  join();
-  toString();
-  forEach();
-  condicional switch;
+Alguns métodos utilizados no projeto: <br />
+<br />
+  split();<br />
+  eval();<br />
+  join();<br />
+  toString();<br />
+  forEach();<br />
+  condicional switch;<br />
   
   
  
